@@ -8,11 +8,10 @@ public class User {
     private String nickname;
     private Room room;
     private UserRole userRole;
-    private int point;
     private Question question;
 
-    public User(){
-
+    public User(String IP){
+        this.IP = IP;
     }
 
     public User(String IP, String nickname) {
@@ -57,14 +56,6 @@ public class User {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
-    }
-
-    public int getPoint() {
-        return point;
-    }
-
-    public void setPoint(int point) {
-        this.point = point;
     }
 
     public Question getQuestion() {
