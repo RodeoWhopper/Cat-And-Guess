@@ -11,7 +11,12 @@ import org.game.manager.RoomManager;
 import org.game.application.MainApplication;
 
 
+import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class GameHandler implements HttpHandler {
     private final UserManager userManager;
@@ -52,16 +57,35 @@ public class GameHandler implements HttpHandler {
                 MainApplication.rooms.add(room);
             }
             //message="JOIN_ROOM:'ROOM_ID'"
-            else if (true) {
 
-            }
 
 
         } else if ("GET".equals(exchange.getRequestMethod())) {
-
-            if(exchange.getRequestMethod().equals("/")){
-
+            String requestURI = exchange.getRequestURI().toString();
+            if(requestURI.equals("/")){
+                Path file = Paths.get("./src/main/resources/index.html");
+                try {
+                    GameHandler.returnPage(file,exchange);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if(requestURI.equals("/login")){
+                Path file = Paths.get("./src/main/resources/login/login.html");
+                try {
+                    GameHandler.returnPage(file,exchange);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
+    }
+
+    public static void returnPage(Path path, HttpExchange exchange) throws Exception{
+        String file = new String(Files.readAllBytes(path));
+        exchange.sendResponseHeaders(200, file.length());
+        OutputStream outputStream = exchange.getResponseBody();
+        outputStream.write(file.getBytes());
+        outputStream.close();
     }
 }
