@@ -1,3 +1,5 @@
+package server.handler;
+
 import java.io.File;
 
 public class GameHandlerTest {
