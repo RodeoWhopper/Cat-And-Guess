@@ -1,8 +1,9 @@
 package org.game.entities.session;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class SessionToken {
+public class SessionToken implements Serializable {
     private String tokenContent;
     private LocalDateTime expirationTime;
 
