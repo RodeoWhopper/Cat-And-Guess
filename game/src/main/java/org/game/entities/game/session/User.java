@@ -2,10 +2,12 @@ package org.game.entities.game.session;
 
 import org.game.common.util.enums.UserRole;
 import org.game.entities.game.content.session.Question;
+import org.game.entities.session.SessionToken;
 
 public class User {
     private String IP;
     private String nickname;
+    private SessionToken sessionToken;
     private Room room;
     private UserRole userRole;
     private Question question;
@@ -14,9 +16,10 @@ public class User {
         this.IP = IP;
     }
 
-    public User(String IP, String nickname) {
+    public User(String IP, String nickname, SessionToken sessionToken) {
         this.IP = IP;
         this.nickname = nickname;
+        this.sessionToken = sessionToken;
     }
 
     public User(String IP, String nickname, Room room, UserRole userRole) {
