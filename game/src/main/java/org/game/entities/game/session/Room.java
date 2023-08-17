@@ -1,6 +1,6 @@
 package org.game.entities.game.session;
 
-import org.game.entities.game.content.session.Question;
+import org.game.entities.game.content.Question;
 
 import java.util.Map;
 import java.util.Set;

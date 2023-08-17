@@ -1,4 +1,4 @@
-package org.game.entities.game.content.session;
+package org.game.entities.game.content;
 
 import org.game.entities.game.session.User;
 
