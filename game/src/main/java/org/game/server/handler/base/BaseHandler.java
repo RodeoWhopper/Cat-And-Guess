@@ -13,6 +13,9 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDateTime;
+
+import static org.game.application.MainApplication.users;
 
 public class BaseHandler {
     private final UserManager userManager;
@@ -25,14 +28,14 @@ public class BaseHandler {
         this.sessionTokenManager = sessionTokenManager;
     }
 
-    public void returnPage(Path path, HttpExchange exchange) throws Exception{
+    protected static void returnPage(Path path, HttpExchange exchange) throws Exception{
         String file = new String(Files.readAllBytes(path));
         exchange.sendResponseHeaders(200, file.length());
         OutputStream outputStream = exchange.getResponseBody();
         outputStream.write(file.getBytes(StandardCharsets.UTF_8));
         outputStream.close();
     }
-    public String[] splitBodyMessage(InputStream inputStream) throws IOException {
+    protected static String[] splitBodyMessage(InputStream inputStream) throws IOException {
         InputStream requestBody = inputStream;
         StringBuilder content = new StringBuilder();
         int bytesRead;
@@ -44,7 +47,22 @@ public class BaseHandler {
         String[] messageList = content.toString().split(":");
         return messageList;
     }
-    public boolean checkIfNameExists(String username){
-        return MainApplication.users.stream().anyMatch(user -> user.getNickname().equals(username));
+    protected static boolean checkIfNameExists(String username){
+        boolean bool = users.isEmpty();
+        if(bool){
+            return false;
+        }else{
+            return users.stream().anyMatch(user ->
+                    user.getUsername().equals(username) && !isNameExpired(user));
+        }
+    }
+    protected static boolean isNameExpired(User user){
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime exp = user.getSessionToken().getExpirationTime();
+        if(exp.isBefore(now)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
