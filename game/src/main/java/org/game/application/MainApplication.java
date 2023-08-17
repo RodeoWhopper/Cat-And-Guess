@@ -15,11 +15,12 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class MainApplication {
-    public static ArrayList<User> users;
-    public static Map<User, SessionToken> tokenList;
-    public static ArrayList<Room> rooms;
+    public static ArrayList<User> users = new ArrayList<>();
+    public static ArrayList<String> nameList = new ArrayList<>();
+    public static ArrayList<Room> rooms = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
+        users.clear();
         final int port = 8080;
         HttpServer server = HttpServer.create(new InetSocketAddress(port),0);
         System.out.println("Server started on port " + port);
