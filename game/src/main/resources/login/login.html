@@ -138,6 +138,7 @@
     }).then(response => {
       let token = response.headers.get("Authorization");
       console.log(token);
+      document.cookie = "AuthorizationToken="+token;
       return response.text();
     }).then(data => {
       console.log(data);
