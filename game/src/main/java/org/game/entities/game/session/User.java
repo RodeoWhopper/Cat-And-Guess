@@ -1,12 +1,12 @@
 package org.game.entities.game.session;
 
 import org.game.common.util.enums.UserRole;
-import org.game.entities.game.content.session.Question;
+import org.game.entities.game.content.Question;
 import org.game.entities.session.SessionToken;
 
 public class User {
     private String IP;
-    private String nickname;
+    private String username;
     private SessionToken sessionToken;
     private Room room;
     private UserRole userRole;
@@ -16,15 +16,15 @@ public class User {
         this.IP = IP;
     }
 
-    public User(String IP, String nickname, SessionToken sessionToken) {
+    public User(String IP, String username, SessionToken sessionToken) {
         this.IP = IP;
-        this.nickname = nickname;
+        this.username = username;
         this.sessionToken = sessionToken;
     }
 
-    public User(String IP, String nickname, Room room, UserRole userRole) {
+    public User(String IP, String username, Room room, UserRole userRole) {
         this.IP = IP;
-        this.nickname = nickname;
+        this.username = username;
         this.room = room;
         this.userRole = userRole;
     }
@@ -37,12 +37,12 @@ public class User {
         this.IP = IP;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Room getRoom() {
@@ -68,4 +68,13 @@ public class User {
     public void setQuestion(Question question) {
         this.question = question;
     }
+
+    public SessionToken getSessionToken() {
+        return sessionToken;
+    }
+
+    public void setSessionToken(SessionToken sessionToken) {
+        this.sessionToken = sessionToken;
+    }
+
 }
