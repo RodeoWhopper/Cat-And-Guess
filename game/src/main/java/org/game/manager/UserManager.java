@@ -1,8 +1,7 @@
 package org.game.manager;
 
-import org.game.application.MainApplication;
 import org.game.common.util.exceptions.UserNotExistsException;
-import org.game.entities.game.session.User;
+import org.game.entities.game.User;
 import org.game.entities.session.SessionToken;
 
 import java.time.LocalDateTime;

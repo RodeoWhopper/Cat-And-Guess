@@ -1,6 +1,6 @@
-package org.game.entities.game.content;
+package org.game.entities.game;
 
-import org.game.entities.game.session.User;
+import org.game.entities.game.User;
 
 public class Question {
     private User owner;

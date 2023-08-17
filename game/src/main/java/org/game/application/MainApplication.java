@@ -1,9 +1,8 @@
 package org.game.application;
 
 import com.sun.net.httpserver.HttpServer;
-import org.game.entities.game.session.Room;
-import org.game.entities.game.session.User;
-import org.game.entities.session.SessionToken;
+import org.game.entities.game.Room;
+import org.game.entities.game.User;
 import org.game.manager.RoomManager;
 import org.game.manager.SessionTokenManager;
 import org.game.manager.UserManager;
@@ -12,7 +11,6 @@ import org.game.server.handler.RootHandler;
 
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class MainApplication {
     public static ArrayList<User> users = new ArrayList<>();

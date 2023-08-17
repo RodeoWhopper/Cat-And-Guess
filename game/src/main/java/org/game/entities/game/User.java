@@ -1,7 +1,6 @@
-package org.game.entities.game.session;
+package org.game.entities.game;
 
 import org.game.common.util.enums.UserRole;
-import org.game.entities.game.content.Question;
 import org.game.entities.session.SessionToken;
 
 public class User {

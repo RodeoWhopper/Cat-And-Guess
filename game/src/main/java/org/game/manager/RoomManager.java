@@ -1,8 +1,8 @@
 package org.game.manager;
 
-import org.game.entities.game.session.Room;
-import org.game.entities.game.content.Question;
-import org.game.entities.game.session.User;
+import org.game.entities.game.Room;
+import org.game.entities.game.Question;
+import org.game.entities.game.User;
 
 import java.util.Map;
 import java.util.Set;

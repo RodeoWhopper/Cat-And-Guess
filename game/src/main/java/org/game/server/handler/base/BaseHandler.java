@@ -1,8 +1,7 @@
 package org.game.server.handler.base;
 
 import com.sun.net.httpserver.HttpExchange;
-import org.game.application.MainApplication;
-import org.game.entities.game.session.User;
+import org.game.entities.game.User;
 import org.game.manager.RoomManager;
 import org.game.manager.SessionTokenManager;
 import org.game.manager.UserManager;

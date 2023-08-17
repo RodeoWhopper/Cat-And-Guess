@@ -1,6 +1,4 @@
-package org.game.entities.game.session;
-
-import org.game.entities.game.content.Question;
+package org.game.entities.game;
 
 import java.util.Map;
 import java.util.Set;

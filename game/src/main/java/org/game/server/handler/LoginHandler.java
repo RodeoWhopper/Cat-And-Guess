@@ -2,9 +2,8 @@ package org.game.server.handler;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import org.game.application.MainApplication;
 import org.game.common.util.exceptions.AlreadyExistsException;
-import org.game.entities.game.session.User;
+import org.game.entities.game.User;
 import org.game.entities.session.SessionToken;
 import org.game.manager.RoomManager;
 import org.game.manager.SessionTokenManager;
