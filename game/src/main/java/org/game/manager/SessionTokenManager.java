@@ -10,7 +10,7 @@ public class SessionTokenManager {
     private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     public SessionToken generateToken(){
         String random = generateRandomString(20);
-        SessionToken token = new SessionToken(random, LocalDateTime.now().plusHours(1));
+        SessionToken token = new SessionToken(random, LocalDateTime.now().plusSeconds(12));
         return token;
     }
 
